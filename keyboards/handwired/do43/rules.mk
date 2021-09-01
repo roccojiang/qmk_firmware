@@ -2,7 +2,11 @@
 MCU = atmega32u4
 
 # Bootloader selection
-BOOTLOADER = atmel-dfu
+BOOTLOADER = qmk-dfu
+
+# Includes
+SRC += oled.c
+SRC += combo.c
 
 # Build Options
 #   change yes to no to disable
@@ -22,3 +26,6 @@ BLUETOOTH_ENABLE = no       # Enable Bluetooth
 AUDIO_ENABLE = no           # Audio output
 OLED_ENABLE = yes           # Enable OLED driver
 WPM_ENABLE = yes            # Enable WPM calculation
+LEADER_ENABLE = yes         # Enable leader key
+COMBO_ENABLE = yes          # Enable combos
+LTO_ENABLE = yes            # Link Time Optimisation

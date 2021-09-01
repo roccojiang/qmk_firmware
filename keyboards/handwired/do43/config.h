@@ -26,7 +26,7 @@ along with this program.  If not, see <http://www.gnu.org/licenses/>.
 #define MANUFACTURER Rocco Jiang
 #define PRODUCT      do43
 
-/* key matrix size */
+/* Key matrix size */
 #define MATRIX_ROWS 4
 #define MATRIX_COLS 12
 
@@ -46,6 +46,17 @@ along with this program.  If not, see <http://www.gnu.org/licenses/>.
 
 /* COL2ROW, ROW2COL */
 #define DIODE_DIRECTION COL2ROW
+
+/* QMK DFU Bootloader */
+#define QMK_ESC_OUTPUT C6  // COL pin if COL2ROW
+#define QMK_ESC_INPUT B4   // ROW pin if COL2ROW
+#define QMK_LED B0
+
+/* Tap-hold configurations */
+#define PERMISSIVE_HOLD
+
+/* Combos */
+#define COMBO_COUNT 1
 
 /*
  * Split Keyboard specific options, make sure you have 'SPLIT_KEYBOARD = yes' in your rules.mk, and define SOFT_SERIAL_PIN.
