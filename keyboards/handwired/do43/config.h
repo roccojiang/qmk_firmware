@@ -47,6 +47,9 @@ along with this program.  If not, see <http://www.gnu.org/licenses/>.
 /* COL2ROW, ROW2COL */
 #define DIODE_DIRECTION COL2ROW
 
+/* Custom OLED font */
+#define OLED_FONT_H "keyboards/handwired/do43/keymaps/roccojiang/glcdfont.c"
+
 /* QMK DFU Bootloader */
 #define QMK_ESC_OUTPUT C6  // COL pin if COL2ROW
 #define QMK_ESC_INPUT B4   // ROW pin if COL2ROW
@@ -56,7 +59,7 @@ along with this program.  If not, see <http://www.gnu.org/licenses/>.
 #define PERMISSIVE_HOLD
 
 /* Combos */
-#define COMBO_COUNT 3
+#define COMBO_COUNT 4
 
 /*
  * Split Keyboard specific options, make sure you have 'SPLIT_KEYBOARD = yes' in your rules.mk, and define SOFT_SERIAL_PIN.
