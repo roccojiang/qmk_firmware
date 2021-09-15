@@ -1,5 +1,4 @@
- /* Copyright 2020 Josef Adamcik
-  * Modification for VIA support and RGB underglow by Jens Bonk-Wiltfang
+ /* Copyright 2021 Stanrc85
   *
   * This program is free software: you can redistribute it and/or modify
   * it under the terms of the GNU General Public License as published by
@@ -15,23 +14,23 @@
   * along with this program.  If not, see <http://www.gnu.org/licenses/>.
   */
 
-#pragma once
+#include "stanrc85.h"
 
-/* The way how "handedness" is decided (which half is which),
-see https://docs.qmk.fm/#/feature_split_keyboard?id=setting-handedness
-for more options.
-*/
-
-//Add RGB underglow and top facing lighting
-#define RGB_DI_PIN D3
-#ifdef RGB_MATRIX_ENABLE
-#define RGBLED_NUM 36    // Number of LEDs
-#define DRIVER_LED_TOTAL RGBLED_NUM
-#endif
-#define RGBLED_NUM 70
-#define RGBLED_SPLIT {36,36}
-#define RGBLIGHT_ANIMATIONS
-#define RGBLIGHT_LIMIT_VAL 120
-#define RGBLIGHT_HUE_STEP 10
-#define RGBLIGHT_SAT_STEP 17
-#define RGBLIGHT_VAL_STEP 17
+layer_state_t layer_state_set_user(layer_state_t state) {
+    switch (get_highest_layer(state)) {
+    case _FN1_60:
+        break;
+    case _FN2_60:
+        rgb_matrix_mode_noeeprom(RGB_MATRIX_RAINBOW_MOVING_CHEVRON);
+        break;
+    case _DEFAULT:
+        rgb_matrix_mode_noeeprom(RGB_MATRIX_MULTISPLASH);
+        break;
+    case _QWERTY:
+        rgb_matrix_mode_noeeprom(RGB_MATRIX_TYPING_HEATMAP);
+        break;
+    default: //  for any other layers, or the default layer
+        break;
+    }
+    return state;
+}
